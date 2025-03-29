@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X, Moon, Sun, Github } from 'lucide-react';
 import { useTheme } from '../hooks/use-theme';
 import { Button } from '@/components/ui/button';
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -27,8 +28,8 @@ const Navbar = () => {
       scrolled ? 'bg-background/80 backdrop-blur-md border-b' : ''
     }`}>
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="text-2xl font-bold text-primary" onClick={closeMenu}>
-          JN<span className="text-foreground">.</span>
+        <Link to="/" className="flex items-center" onClick={closeMenu}>
+          <Logo size="sm" />
         </Link>
 
         {/* Desktop Navigation */}

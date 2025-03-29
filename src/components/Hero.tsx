@@ -101,9 +101,11 @@ const Hero = () => {
             >
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-full blur-sm opacity-75"></div>
               <div className="relative rounded-full overflow-hidden border-2 border-background w-64 h-64 md:w-80 md:h-80">
-                <div className="w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-4xl font-bold text-primary">
-                  JN
-                </div>
+                <img 
+                  src="/lovable-uploads/39323a6c-1738-4ea7-aff3-4cec5713697c.png" 
+                  alt="Joseph Njoroge" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </motion.div>
           </div>

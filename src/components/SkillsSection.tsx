@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Laptop, Server, Database, PieChart, Wrench, Lightbulb } from 'lucide-react';
+import ProgrammingIcon from './ProgrammingIcon';
 
 const SkillsSection = () => {
   const skillCategories = [
@@ -56,8 +57,8 @@ const SkillsSection = () => {
               
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, i) => (
-                  <span key={i} className="skill-badge">
-                    {skill}
+                  <span key={i} className="skill-badge flex items-center gap-1 py-1.5">
+                    <ProgrammingIcon language={skill} size={16} />
                   </span>
                 ))}
               </div>

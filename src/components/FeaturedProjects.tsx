@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Github } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import ProjectImage from './ProjectImage';
 
 interface Project {
   title: string;
@@ -17,22 +18,22 @@ interface Project {
 const FeaturedProjects = () => {
   const projects: Project[] = [
     {
+      title: "MediRescueHaven",
+      description: "A digital healthcare platform connecting patients with medical professionals, featuring appointment scheduling, medical records, and telemedicine capabilities.",
+      techStack: ["React", "Node.js", "MongoDB", "Express"],
+      githubUrl: "https://github.com/snowngich/medi-rescue-haven"
+    },
+    {
       title: "SnowHub",
       description: "A Learning Management System (LMS) where I teach full-stack development, offer job postings, and host tech events.",
       techStack: ["JavaScript", "React", "Node.js", "MongoDB"],
       githubUrl: "https://github.com/snowngich/snowhub"
     },
     {
-      title: "Piga Order - Creative eCommerce Platform",
+      title: "Piga Order",
       description: "A dynamic online marketplace with interactive UI, seamless shopping experience, and a dark mode UI.",
       techStack: ["React", "JavaScript", "Tailwind CSS"],
       githubUrl: "https://github.com/snowngich/piga-order"
-    },
-    {
-      title: "Code & Connect - Techie Dating & Networking Platform",
-      description: "A dating platform for developers, techies, and crypto enthusiasts, integrating GitHub, AI matchmaking, and hackathon features.",
-      techStack: ["React", "Django", "PostgreSQL"],
-      githubUrl: "https://github.com/snowngich/code-connect"
     }
   ];
 
@@ -57,11 +58,11 @@ const FeaturedProjects = () => {
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
             >
               {/* Project Image/Placeholder - alternating sides for visual interest */}
-              <div className={`bg-secondary rounded-lg overflow-hidden border border-border h-64 md:h-80 flex items-center justify-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+              <div className={`rounded-lg overflow-hidden border border-border h-64 md:h-80 flex items-center justify-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
                 {project.imageUrl ? (
                   <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
                 ) : (
-                  <div className="text-6xl font-bold text-primary/30">{project.title.charAt(0)}</div>
+                  <ProjectImage projectName={project.title} className="w-full h-full" />
                 )}
               </div>
               
