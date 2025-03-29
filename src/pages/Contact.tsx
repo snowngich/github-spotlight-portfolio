@@ -4,7 +4,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactSection from '@/components/ContactSection';
 import { Button } from '@/components/ui/button';
-import { GitHub, Linkedin, Mail, MapPin } from 'lucide-react';
+import { Github, Linkedin, Mail, MapPin } from 'lucide-react';
 
 const Contact = () => {
   return (
@@ -26,7 +26,7 @@ const Contact = () => {
               <div className="flex flex-wrap justify-center gap-4 mt-8">
                 <Button asChild variant="outline" className="gap-2">
                   <a href="https://github.com/snowngich" target="_blank" rel="noopener noreferrer">
-                    <GitHub size={18} />
+                    <Github size={18} />
                     GitHub
                   </a>
                 </Button>

@@ -9,7 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { 
   Code, Database, Server, LineChart, 
   Monitor, LayoutGrid, Network, BrainCircuit,
-  BarChart3, ChevronRight, PenTool 
+  BarChart3, ChevronRight, PenTool, Wrench 
 } from 'lucide-react';
 
 const Skills = () => {
