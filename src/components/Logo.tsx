@@ -28,11 +28,15 @@ const Logo = ({ size = 'md', withText = true }: LogoProps) => {
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <defs>
             <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="hsl(var(--primary))" />
-              <stop offset="100%" stopColor="hsl(var(--accent))" />
+              <stop offset="0%" stopColor={theme === 'dark' ? 'hsl(var(--primary))' : 'hsl(var(--primary))'} />
+              <stop offset="100%" stopColor={theme === 'dark' ? 'hsl(var(--accent))' : 'hsl(var(--accent))'} />
             </linearGradient>
+            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="2" result="blur" />
+              <feComposite in="SourceGraphic" in2="blur" operator="over" />
+            </filter>
           </defs>
-          <circle cx="50" cy="50" r="45" fill="url(#logo-gradient)" />
+          <circle cx="50" cy="50" r="45" fill="url(#logo-gradient)" filter="url(#glow)" />
           <text 
             x="50" 
             y="50" 

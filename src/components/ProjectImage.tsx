@@ -2,6 +2,7 @@
 import React from 'react';
 import { Code, Stethoscope, ShoppingCart } from 'lucide-react';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { getProjectBackground } from '../utils/randomImages';
 
 interface ProjectImageProps {
   projectName: string;
@@ -35,36 +36,20 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ projectName, className = ""
     }
   };
 
-  const getProjectImage = () => {
-    switch (projectName.toLowerCase()) {
-      case 'snowhub':
-        return '/project-images/snowhub.jpg';
-      case 'medi-rescue-haven':
-        return '/project-images/medi-rescue-haven.jpg';
-      case 'piga order':
-        return '/project-images/piga-order.jpg';
-      default:
-        return '';
-    }
-  };
-
-  const imagePath = getProjectImage();
+  // Get project image from our new utility
+  const imagePath = getProjectBackground(projectName);
 
   return (
     <div className={`relative overflow-hidden ${className}`}>
       <AspectRatio ratio={16 / 9} className="w-full">
-        {imagePath ? (
-          <div className="absolute inset-0">
-            <img 
-              src={imagePath} 
-              alt={projectName} 
-              className="w-full h-full object-cover"
-            />
-            <div className={`absolute inset-0 bg-gradient-to-br ${getGradientClass()} opacity-90`}></div>
-          </div>
-        ) : (
-          <div className={`absolute inset-0 bg-gradient-to-br ${getGradientClass()}`}></div>
-        )}
+        <div className="absolute inset-0">
+          <img 
+            src={imagePath} 
+            alt={projectName} 
+            className="w-full h-full object-cover"
+          />
+          <div className={`absolute inset-0 bg-gradient-to-br ${getGradientClass()} opacity-90`}></div>
+        </div>
         
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center z-10">

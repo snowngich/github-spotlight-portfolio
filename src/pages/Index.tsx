@@ -9,10 +9,12 @@ import EducationSection from '@/components/EducationSection';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import CertificationsSection from '@/components/CertificationsSection';
 import ContactSection from '@/components/ContactSection';
+import BackgroundImage from '@/components/BackgroundImage';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import { ThemeProvider } from '../hooks/use-theme';
+import { getRandomBackground, getCategoryBackground } from '../utils/randomImages';
 
 const Index = () => {
   return (
@@ -22,10 +24,20 @@ const Index = () => {
         
         <main className="flex-grow">
           {/* Hero Section */}
-          <Hero />
+          <BackgroundImage 
+            imageUrl={getCategoryBackground('programming')}
+            opacity={0.1}
+            className="w-full"
+          >
+            <Hero />
+          </BackgroundImage>
           
           {/* About Me (Brief) */}
-          <section className="py-20 bg-secondary/50">
+          <BackgroundImage 
+            imageUrl={getRandomBackground()}
+            opacity={0.08}
+            className="py-20 bg-secondary/50 w-full"
+          >
             <div className="container mx-auto px-4">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="order-2 lg:order-1">
@@ -99,25 +111,61 @@ const Index = () => {
                 </div>
               </div>
             </div>
-          </section>
+          </BackgroundImage>
           
           {/* Featured Projects */}
-          <FeaturedProjects />
+          <BackgroundImage 
+            imageUrl={getCategoryBackground('programming')}
+            opacity={0.05}
+            className="w-full"
+          >
+            <FeaturedProjects />
+          </BackgroundImage>
           
           {/* Skills Overview */}
-          <SkillsSection />
+          <BackgroundImage 
+            imageUrl={getCategoryBackground('programming')}
+            opacity={0.08}
+            className="w-full"
+          >
+            <SkillsSection />
+          </BackgroundImage>
           
           {/* Experience */}
-          <ExperienceSection />
+          <BackgroundImage 
+            imageUrl={getRandomBackground()}
+            opacity={0.05}
+            className="w-full"
+          >
+            <ExperienceSection />
+          </BackgroundImage>
           
           {/* Education */}
-          <EducationSection />
+          <BackgroundImage 
+            imageUrl={getCategoryBackground('education')}
+            opacity={0.08}
+            className="w-full"
+          >
+            <EducationSection />
+          </BackgroundImage>
           
           {/* Certifications */}
-          <CertificationsSection />
+          <BackgroundImage 
+            imageUrl={getRandomBackground()}
+            opacity={0.05}
+            className="w-full"
+          >
+            <CertificationsSection />
+          </BackgroundImage>
           
           {/* Contact Section */}
-          <ContactSection />
+          <BackgroundImage 
+            imageUrl={getRandomBackground()}
+            opacity={0.08}
+            className="w-full"
+          >
+            <ContactSection />
+          </BackgroundImage>
         </main>
         
         <Footer />

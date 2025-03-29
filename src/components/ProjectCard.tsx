@@ -1,9 +1,9 @@
-
 import React from 'react';
 import { ExternalLink, Github, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { getProjectBackground } from '../utils/randomImages';
 
 export interface GithubRepo {
   id: number;
@@ -53,23 +53,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
   // Get project background image based on project name or language
   const getProjectBackground = () => {
     const formattedName = project.name.toLowerCase();
-    if (formattedName.includes('medi') || formattedName.includes('health') || formattedName.includes('rescue')) {
-      return '/project-images/medi-rescue-haven.jpg';
-    } else if (formattedName.includes('snow') || formattedName.includes('hub') || formattedName.includes('learn')) {
-      return '/project-images/snowhub.jpg';
-    } else if (formattedName.includes('piga') || formattedName.includes('order') || formattedName.includes('shop')) {
-      return '/project-images/piga-order.jpg';
-    } else if (project.language === 'JavaScript' || project.language === 'TypeScript') {
-      return '/project-images/javascript-project.jpg';
-    } else if (project.language === 'Python') {
-      return '/project-images/python-project.jpg';
-    } else {
-      return '/project-images/code-project.jpg';
-    }
+    return getProjectBackground(formattedName);
   };
 
   return (
-    <Card className="project-card h-full flex flex-col overflow-hidden">
+    <Card className="project-card h-full flex flex-col overflow-hidden group">
       <div className="overflow-hidden">
         <AspectRatio ratio={16/9}>
           <div className="relative w-full h-full">
