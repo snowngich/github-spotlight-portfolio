@@ -3,6 +3,7 @@ import React from 'react';
 import { ExternalLink, Github, Star } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 export interface GithubRepo {
   id: number;
@@ -49,8 +50,39 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
     return colors[language] || "text-gray-500";
   };
 
+  // Get project background image based on project name or language
+  const getProjectBackground = () => {
+    const formattedName = project.name.toLowerCase();
+    if (formattedName.includes('medi') || formattedName.includes('health') || formattedName.includes('rescue')) {
+      return '/project-images/medi-rescue-haven.jpg';
+    } else if (formattedName.includes('snow') || formattedName.includes('hub') || formattedName.includes('learn')) {
+      return '/project-images/snowhub.jpg';
+    } else if (formattedName.includes('piga') || formattedName.includes('order') || formattedName.includes('shop')) {
+      return '/project-images/piga-order.jpg';
+    } else if (project.language === 'JavaScript' || project.language === 'TypeScript') {
+      return '/project-images/javascript-project.jpg';
+    } else if (project.language === 'Python') {
+      return '/project-images/python-project.jpg';
+    } else {
+      return '/project-images/code-project.jpg';
+    }
+  };
+
   return (
-    <Card className="project-card h-full flex flex-col">
+    <Card className="project-card h-full flex flex-col overflow-hidden">
+      <div className="overflow-hidden">
+        <AspectRatio ratio={16/9}>
+          <div className="relative w-full h-full">
+            <img 
+              src={getProjectBackground()} 
+              alt={formatName(project.name)} 
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-transparent"></div>
+          </div>
+        </AspectRatio>
+      </div>
+      
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg hover:text-primary transition-colors">

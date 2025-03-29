@@ -57,13 +57,9 @@ const FeaturedProjects = () => {
               viewport={{ once: true }}
               className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
             >
-              {/* Project Image/Placeholder - alternating sides for visual interest */}
-              <div className={`rounded-lg overflow-hidden border border-border h-64 md:h-80 flex items-center justify-center ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
-                {project.imageUrl ? (
-                  <img src={project.imageUrl} alt={project.title} className="w-full h-full object-cover" />
-                ) : (
-                  <ProjectImage projectName={project.title} className="w-full h-full" />
-                )}
+              {/* Project Image - alternating sides for visual interest */}
+              <div className={`rounded-lg overflow-hidden border border-border h-64 md:h-80 ${index % 2 === 1 ? 'lg:order-2' : ''}`}>
+                <ProjectImage projectName={project.title} className="w-full h-full" />
               </div>
               
               {/* Project Description */}

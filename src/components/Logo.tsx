@@ -24,11 +24,27 @@ const Logo = ({ size = 'md', withText = true }: LogoProps) => {
   
   return (
     <div className="flex items-center gap-2">
-      <div className={`relative rounded-full overflow-hidden ${sizes[size]}`}>
-        <div className="absolute inset-0 bg-gradient-to-br from-primary to-accent rounded-full"></div>
-        <div className="absolute inset-0 flex items-center justify-center font-bold text-white">
-          JN
-        </div>
+      <div className={`relative ${sizes[size]}`}>
+        <svg viewBox="0 0 100 100" className="w-full h-full">
+          <defs>
+            <linearGradient id="logo-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="hsl(var(--primary))" />
+              <stop offset="100%" stopColor="hsl(var(--accent))" />
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="45" fill="url(#logo-gradient)" />
+          <text 
+            x="50" 
+            y="50" 
+            dominantBaseline="middle" 
+            textAnchor="middle" 
+            fill="white"
+            fontWeight="bold"
+            fontSize="40"
+          >
+            JN
+          </text>
+        </svg>
       </div>
       
       {withText && (

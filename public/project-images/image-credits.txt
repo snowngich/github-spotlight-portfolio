@@ -1,0 +1,9 @@
+
+Project Image Credits:
+
+1. medi-rescue-haven.jpg - Medical healthcare dashboard interface
+2. snowhub.jpg - Learning management system dashboard
+3. piga-order.jpg - E-commerce shopping interface
+4. javascript-project.jpg - JavaScript code editor
+5. python-project.jpg - Python data visualization
+6. code-project.jpg - Generic coding background

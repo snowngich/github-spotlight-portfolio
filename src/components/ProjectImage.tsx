@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Code, Stethoscope, ShoppingCart } from 'lucide-react';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 interface ProjectImageProps {
   projectName: string;
@@ -34,12 +35,44 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ projectName, className = ""
     }
   };
 
+  const getProjectImage = () => {
+    switch (projectName.toLowerCase()) {
+      case 'snowhub':
+        return '/project-images/snowhub.jpg';
+      case 'medi-rescue-haven':
+        return '/project-images/medi-rescue-haven.jpg';
+      case 'piga order':
+        return '/project-images/piga-order.jpg';
+      default:
+        return '';
+    }
+  };
+
+  const imagePath = getProjectImage();
+
   return (
-    <div className={`bg-gradient-to-br ${getGradientClass()} flex items-center justify-center ${className}`}>
-      <div className="text-center">
-        {getProjectIcon()}
-        <h3 className="mt-2 font-semibold">{projectName}</h3>
-      </div>
+    <div className={`relative overflow-hidden ${className}`}>
+      <AspectRatio ratio={16 / 9} className="w-full">
+        {imagePath ? (
+          <div className="absolute inset-0">
+            <img 
+              src={imagePath} 
+              alt={projectName} 
+              className="w-full h-full object-cover"
+            />
+            <div className={`absolute inset-0 bg-gradient-to-br ${getGradientClass()} opacity-90`}></div>
+          </div>
+        ) : (
+          <div className={`absolute inset-0 bg-gradient-to-br ${getGradientClass()}`}></div>
+        )}
+        
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="text-center z-10">
+            {getProjectIcon()}
+            <h3 className="mt-2 font-semibold text-foreground">{projectName}</h3>
+          </div>
+        </div>
+      </AspectRatio>
     </div>
   );
 };
